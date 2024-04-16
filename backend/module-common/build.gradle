@@ -4,6 +4,7 @@ plugins {
     // querydsl
     id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
     id 'java'
+    id 'jacoco'
     id 'org.sonarqube' version '3.5.0.2730'
 }
 
@@ -70,6 +71,7 @@ dependencies {
 
     // lombok
     implementation 'org.projectlombok:lombok'
+    implementation 'org.webjars:webjars-locator-core:0.53'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
@@ -101,3 +103,13 @@ compileQuerydsl {
     options.compilerArgs << '-Aquerydsl.generatedAnnotationClass=javax.annotation.Generated'
 }
 // querydsl 추가 끝
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
