@@ -5,6 +5,7 @@ plugins {
     // querydsl
     id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
     id 'java'
+    id 'jacoco'
 }
 
 group = 'org.egovframe.cloud'
@@ -87,6 +88,12 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
 }
 
 // querydsl 추가 시작

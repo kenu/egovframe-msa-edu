@@ -2,6 +2,8 @@ plugins {
     id 'org.springframework.boot' version '2.7.12'
     id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
+    id 'jacoco'
+    id 'org.sonarqube' version '3.5.0.2730'
 }
 
 group = 'org.egovframe.cloud'
@@ -77,6 +79,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
 }
 
 dependencyManagement {
